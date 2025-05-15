@@ -16,8 +16,7 @@ sales = {}
 
 for i in range(num_product):
     for j in range(num_customer):
-        if not sales.get(j):
-            if prices[i] <= budgets[j]:
-                sales[j] = prices[i]
+        if prices[i] <= budgets[j] and not sales.get(j):
+            sales[j] = prices[i]
 
 print(sum(sales.values()))
