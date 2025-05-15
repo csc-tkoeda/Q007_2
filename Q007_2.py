@@ -12,11 +12,12 @@ num_product, num_customer = list(map(int, input().split()))
 prices = sorted(list(map(int, input().split())), reverse=True)
 budgets = list(map(int, input().split()))
 
-sales = {}
+total_sales = 0
 
-for i in range(num_product):
-    for j in range(num_customer):
-        if prices[i] <= budgets[j] and not sales.get(j):
-            sales[j] = prices[i]
+for i in range(num_customer):
+    for j in range(num_product):
+        if prices[j] <= budgets[i]:
+            total_sales += prices[j]
+            break
 
-print(sum(sales.values()))
+print(total_sales)
